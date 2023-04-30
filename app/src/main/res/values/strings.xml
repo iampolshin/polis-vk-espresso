@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">TODO</string>
+    <string name="title_text">My List</string>
+    <string name="item_hint">Enter item name</string>
+    <string name="add_button_text">Add</string>
+    <string name="clear_button_text">Remove All</string>
+    <string name="delete_button_text">Remove</string>
+    <string name="edit_button_text">Edit</string>
+    <string name="edit_dialog_title">Edit item</string>
+    <string name="edit_dialog_message">Enter new text:</string>
+    <string name="edit_dialog_positive_button">OK</string>
+    <string name="edit_dialog_negative_button">Cancel</string>
+</resources>
