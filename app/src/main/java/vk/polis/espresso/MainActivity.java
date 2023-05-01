@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        inputText = findViewById(R.id.inputText);
-        Button addButton = findViewById(R.id.addTODO);
-        Button clearButton = findViewById(R.id.removeAllTODO);
+        inputText = findViewById(R.id.input_text);
+        Button addButton = findViewById(R.id.add_item);
+        Button clearButton = findViewById(R.id.remove_all_items);
         ListView listView = findViewById(R.id.listView);
 
         items = new ArrayList<>();
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     .setTitle(R.string.edit_dialog_title)
                     .setMessage(R.string.edit_dialog_message)
                     .setView(editText)
-                    .setPositiveButton(R.string.edit_dialog_positive_button, (dialogInterface, i1) -> {
+                    .setPositiveButton(R.string.edit_dialog_ok_button, (dialogInterface, i1) -> {
                         String text = editText.getText().toString();
                         if (!text.isEmpty()) {
                             items.get(i1).setItemText(text);
