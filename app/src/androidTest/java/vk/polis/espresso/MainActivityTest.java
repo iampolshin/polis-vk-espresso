@@ -37,20 +37,20 @@ public class MainActivityTest {
                 .checkListCount(0);
     }
 
-    @Test
+    @Test  // Zelenkina Ekaterina test
     public void addItemWithSpacesTest() {
         mainPage.enterNewItemText("   ")
                 .clickAddButton()
                 .checkListCount(0);
     }
 
-    @Test
+    @Test  // Zelenkina Ekaterina test
     public void testEmptyItemErrorMessage() {
         mainPage.clickAddButton()
                 .checkErrorMessage(decorView);
     }
 
-    @Test
+    @Test  // Zelenkina Ekaterina test
     public void testWithSpacesItemErrorMessage() {
         mainPage.enterNewItemText("   ")
                 .clickAddButton()
@@ -101,7 +101,7 @@ public class MainActivityTest {
                 .checkListItem("New item");
     }
 
-    @Test
+    @Test  // Zelenkina Ekaterina test
     public void cancelChangeItemTextTest() {
         mainPage.enterNewItemText("Some item")
                 .clickAddButton()
@@ -111,7 +111,7 @@ public class MainActivityTest {
                 .checkListItem("Some item");
     }
 
-    @Test
+    @Test  // Polshin Vladimir test
     public void checkItemDoneTest() {
         mainPage.enterNewItemText("New item")
                 .clickAddButton()
@@ -120,7 +120,7 @@ public class MainActivityTest {
                 .checkItemDone(0);
     }
 
-    @Test
+    @Test  // Zelenkina Ekaterina test
     public void checkItemNotDoneTest() {
         int position = 0;
         mainPage.enterNewItemText("New item")
@@ -129,7 +129,7 @@ public class MainActivityTest {
                 .checkItemNotDone(position);
     }
 
-    @Test
+    @Test  // Polshin Vladimir test
     public void checkDoubleClickItemNotDoneTest() {
         int position = 0;
         mainPage.enterNewItemText("New item")
