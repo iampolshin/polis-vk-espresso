@@ -1,5 +1,7 @@
 package vk.polis.espresso;
 
+import android.view.View;
+
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
@@ -11,6 +13,7 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
     private MainPage mainPage;
+    private View decorView;
 
     @Rule
     public ActivityScenarioRule<MainActivity> activityRule = new ActivityScenarioRule<>(MainActivity.class);
@@ -18,6 +21,7 @@ public class MainActivityTest {
     @Before
     public void setUp() {
         mainPage = new MainPage();
+        activityRule.getScenario().onActivity(activity -> decorView = activity.getWindow().getDecorView());
     }
 
     @Test
@@ -31,6 +35,26 @@ public class MainActivityTest {
     public void addItemWithEmptyTextTest() {
         mainPage.clickAddButton()
                 .checkListCount(0);
+    }
+
+    @Test
+    public void addItemWithSpacesTest() {
+        mainPage.enterNewItemText("   ")
+                .clickAddButton()
+                .checkListCount(0);
+    }
+
+    @Test
+    public void testEmptyItemErrorMessage() {
+        mainPage.clickAddButton()
+                .checkErrorMessage(decorView);
+    }
+
+    @Test
+    public void testWithSpacesItemErrorMessage() {
+        mainPage.enterNewItemText("   ")
+                .clickAddButton()
+                .checkErrorMessage(decorView);
     }
 
     @Test
@@ -50,7 +74,7 @@ public class MainActivityTest {
         mainPage.enterNewItemText(itemText)
                 .clickAddButton()
                 .checkListItem(itemText)
-                .clickRemoveBtn(itemText)
+                .clickRemoveBtn()
                 .checkListDoesNotContain(itemText);
     }
 
@@ -72,10 +96,19 @@ public class MainActivityTest {
         mainPage.enterNewItemText("Some item")
                 .clickAddButton()
                 .clickListItem(0)
-                .checkEditDialogDisplayed()
                 .enterEditDialogText("Some item", "New item")
-                .clickEditDialogPositiveButton()
+                .clickEditDialogOkButton()
                 .checkListItem("New item");
+    }
+
+    @Test
+    public void cancelChangeItemTextTest() {
+        mainPage.enterNewItemText("Some item")
+                .clickAddButton()
+                .clickListItem(0)
+                .enterEditDialogText("Some item", "New item")
+                .clickEditDialogCancelButton()
+                .checkListItem("Some item");
     }
 
     @Test
@@ -89,6 +122,15 @@ public class MainActivityTest {
 
     @Test
     public void checkItemNotDoneTest() {
+        int position = 0;
+        mainPage.enterNewItemText("New item")
+                .clickAddButton()
+                .checkListItem("New item")
+                .checkItemNotDone(position);
+    }
+
+    @Test
+    public void checkDoubleClickItemNotDoneTest() {
         int position = 0;
         mainPage.enterNewItemText("New item")
                 .clickAddButton()

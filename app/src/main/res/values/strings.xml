@@ -9,5 +9,6 @@
     <string name="edit_dialog_title">Edit item</string>
     <string name="edit_dialog_message">Enter new text:</string>
     <string name="edit_dialog_ok_button">OK</string>
-    <string name="edit_dialog_negative_button">Cancel</string>
+    <string name="edit_dialog_cancel_button">Cancel</string>
+    <string name="error_empty_item">Task is empty or consists of spaces</string>
 </resources>

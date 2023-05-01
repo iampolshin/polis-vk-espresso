@@ -38,6 +38,7 @@
                 <map>
                   <entry key="34HDU19A28000253" value="120" />
                   <entry key="Duration" value="90" />
+                  <entry key="HUAWEI" value="120" />
                   <entry key="HUAWEI&#10; YAL-L41" value="120" />
                   <entry key="Pixel_5_API_30" value="120" />
                   <entry key="Tests" value="360" />
@@ -100,6 +101,20 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="-65204508">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="34HDU19A28000253" value="120" />
+                  <entry key="Duration" value="90" />
+                  <entry key="HUAWEI&#10; YAL-L41" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="-47133642">
           <value>
             <AndroidTestResultsTableState>
@@ -139,6 +154,20 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="904512841">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="34HDU19A28000253" value="120" />
+                  <entry key="Duration" value="90" />
+                  <entry key="HUAWEI&#10; YAL-L41" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="1385320017">
           <value>
             <AndroidTestResultsTableState>
@@ -157,7 +186,9 @@
             <AndroidTestResultsTableState>
               <option name="preferredColumnWidths">
                 <map>
+                  <entry key="34HDU19A28000253" value="120" />
                   <entry key="Duration" value="90" />
+                  <entry key="HUAWEI&#10; YAL-L41" value="120" />
                   <entry key="Pixel_5_API_30" value="120" />
                   <entry key="Tests" value="360" />
                 </map>
@@ -185,6 +216,21 @@
                 <map>
                   <entry key="Duration" value="90" />
                   <entry key="Pixel_5_API_30" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="1953737459">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="34HDU19A28000253" value="120" />
+                  <entry key="Duration" value="90" />
+                  <entry key="HUAWEI" value="120" />
+                  <entry key="HUAWEI&#10; YAL-L41" value="120" />
                   <entry key="Tests" value="360" />
                 </map>
               </option>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        inputText = findViewById(R.id.input_text);
-        Button addButton = findViewById(R.id.add_item);
-        Button clearButton = findViewById(R.id.remove_all_items);
+        inputText = findViewById(R.id.inputText);
+        Button addButton = findViewById(R.id.addItem);
+        Button clearButton = findViewById(R.id.removeAllItems);
         ListView listView = findViewById(R.id.listView);
 
         items = new ArrayList<>();
@@ -32,12 +33,14 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         addButton.setOnClickListener(view -> {
-            String text = inputText.getText().toString();
+            String text = inputText.getText().toString().trim(); // удалить начальные и конечные пробелы
             if (!text.isEmpty()) {
                 ListItem item = new ListItem(text);
                 items.add(item);
                 adapter.notifyDataSetChanged();
                 inputText.setText("");
+            } else {
+                Toast.makeText(MainActivity.this, R.string.error_empty_item, Toast.LENGTH_SHORT).show(); // вывести сообщение об ошибке
             }
         });
 
@@ -61,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                             adapter.notifyDataSetChanged();
                         }
                     })
-                    .setNegativeButton(R.string.edit_dialog_negative_button, null)
+                    .setNegativeButton(R.string.edit_dialog_cancel_button, null)
                     .show();
         });
 
