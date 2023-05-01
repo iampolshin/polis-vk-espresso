@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -37,6 +38,7 @@ public class MyListAdapter extends ArrayAdapter<ListItem> {
             viewHolder = new ViewHolder();
             viewHolder.itemText = view.findViewById(R.id.listItemText);
             viewHolder.deleteButton = view.findViewById(R.id.deleteButton);
+            viewHolder.checkBox = view.findViewById(R.id.listItemCheckBox);
             view.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) view.getTag();
@@ -49,14 +51,14 @@ public class MyListAdapter extends ArrayAdapter<ListItem> {
             viewHolder.itemText.setOnClickListener(v -> showEditDialog(position));
 
             viewHolder.deleteButton.setOnClickListener(v -> removeItem(position));
+            viewHolder.checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                item.setDone(isChecked);
+                notifyDataSetChanged();
+            });
+            viewHolder.checkBox.setChecked(item.isDone());
         }
 
         return view;
-    }
-
-    private static class ViewHolder {
-        TextView itemText;
-        Button deleteButton;
     }
 
     private void showEditDialog(final int position) {
@@ -78,8 +80,14 @@ public class MyListAdapter extends ArrayAdapter<ListItem> {
         builder.show();
     }
 
-    public void removeItem(int position) {
+    private void removeItem(int position) {
         items.remove(position);
         notifyDataSetChanged();
+    }
+
+    private static class ViewHolder {
+        TextView itemText;
+        Button deleteButton;
+        CheckBox checkBox;
     }
 }

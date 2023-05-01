@@ -10,7 +10,9 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.RootMatchers.isDialog;
 import static androidx.test.espresso.matcher.ViewMatchers.hasChildCount;
 import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
+import static androidx.test.espresso.matcher.ViewMatchers.isChecked;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isNotChecked;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.CoreMatchers.anything;
@@ -83,6 +85,26 @@ public class MainPage {
 
     public void checkListDoesNotContain(String text) {
         onView(LIST_VIEW_MATCHER).check(matches(not(hasDescendant(withText(text)))));
+    }
+
+    public MainPage clickItemCheckbox(int position) {
+        onView(LIST_VIEW_MATCHER).check(matches(isDisplayed()));
+        onData(anything()).inAdapterView(LIST_VIEW_MATCHER).atPosition(position)
+                .onChildView(withId(R.id.listItemCheckBox)).perform(click());
+        return this;
+    }
+
+    public MainPage checkItemDone(int position) {
+        onView(LIST_VIEW_MATCHER).check(matches(isDisplayed()));
+        onData(anything()).inAdapterView(LIST_VIEW_MATCHER).atPosition(position)
+                .onChildView(withId(R.id.listItemCheckBox)).check(matches(isChecked()));
+        return this;
+    }
+
+    public void checkItemNotDone(int position) {
+        onView(LIST_VIEW_MATCHER).check(matches(isDisplayed()));
+        onData(anything()).inAdapterView(LIST_VIEW_MATCHER).atPosition(position)
+                .onChildView(withId(R.id.listItemCheckBox)).check(matches(isNotChecked()));
     }
 }
 

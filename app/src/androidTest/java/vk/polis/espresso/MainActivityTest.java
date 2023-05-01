@@ -77,4 +77,25 @@ public class MainActivityTest {
                 .clickEditDialogPositiveButton()
                 .checkListItem("New item");
     }
+
+    @Test
+    public void checkItemDoneTest() {
+        mainPage.enterNewItemText("New item")
+                .clickAddButton()
+                .checkListItem("New item")
+                .clickItemCheckbox(0)
+                .checkItemDone(0);
+    }
+
+    @Test
+    public void checkItemNotDoneTest() {
+        int position = 0;
+        mainPage.enterNewItemText("New item")
+                .clickAddButton()
+                .checkListItem("New item")
+                .clickItemCheckbox(position)
+                .checkItemDone(position)
+                .clickItemCheckbox(position)
+                .checkItemNotDone(position);
+    }
 }
